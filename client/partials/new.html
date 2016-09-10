@@ -1,0 +1,28 @@
+<!-- You will attach an ng-model and an ng-submit to your forms (but might want to wait until the next tab, when you have your controllers and factory) -->
+<div ng-controller="newController">
+
+
+<h3>New</h3>
+
+	<div class="col-sm-6">
+		<form class="form-group" ng-submit='create()'>
+			<div class="form-group">
+				<label for="firstName">First Name</label>
+				<input type="text" class="form-control" name="firstName" ng-model='friend.firstName'>
+			</div>
+			<div class="form-group">
+				<label for="lastName">Last Name</label>
+				<input type="text" class="form-control" name="lastName" ng-model='friend.lastName'>
+			</div>
+			<div class="form-group">
+				<label for="age">Age</label>
+				<input type="text" class="form-control" name="age" ng-model='friend.age'>
+			</div>
+			<div class="form-group">
+				<label for="date_added">Date</label>
+				<input type="text" class="form-control" name="date_added" ng-model='friend.date_added'>
+			</div>
+			<input type="submit" class="btn btn-success">
+		</form>
+	</div>
+</div>
