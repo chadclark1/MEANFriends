@@ -16,6 +16,41 @@
     <script src="assets/app.js" charset="utf-8"></script>
 
 
+    <script>
+
+    /*
+        This is the monolithic JavaScript that you should be modularizing.
+        The whole project has 5 problems in it, that when rectified will allow the project to run.
+        Feel free to improve upon code quality, readability, and comments.
+      */
+    /* our angular app modularize, with config */
+    var app = angular.module('app', ['ngRoute']);
+    /* configuration for angular route */
+    app.config(function($routeProvider) {
+      $routeProvider
+        .when('/index', {
+          templateUrl: '/partials/index.html',
+          controller: 'newController'
+        })
+        .when('/edit/:id', {
+          templateUrl: '/partials/edit.html',
+          controller: 'editController',
+          controllerAs: 'eC'
+        })
+        .when('/new', {
+          templateUrl: '/partials/new.html',
+          controller: 'newController',
+        })
+        .otherwise({
+          redirectTo: '/index'
+        });
+    });
+
+    </script>
+
+
+
+
     <script type="text/javascript" src="/assets/factories/friendsFactory.js"></script>
     <script type="text/javascript" src="/assets/controllers/newController.js"></script>
     <script type="text/javascript" src="/assets/controllers/editController.js"></script>
@@ -29,7 +64,7 @@
     <!-- not so subtle hint: ng-view ??? -->
 
     <div ng-app='app'>
-        <h4><a href="#/">Home</a> | <a href="#/new\">New</a> | <a href="#/edit">Edit</a></h4>
+        <h4><a href="#/">Home</a> | <a href="#/new">New</a> | <a href="#/edit/:id">Edit</a></h4>
         <div ng-view="">
         </div>
     </div>

@@ -30,8 +30,9 @@ app.factory('friendsFactory', ['$http', function($http) {
     };
     this.delete = function(id){// what parameters do we need?
         // Your code here
-        console.log("id");
-        $http.delete('/friends/'.id);
+        // console.log("delete factory");
+        // console.log(id);
+        $http.delete("/friends/" + id);
     };
     this.show = function(){// what parameters do we need?
         // Your code here

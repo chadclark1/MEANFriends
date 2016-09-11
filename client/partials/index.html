@@ -10,11 +10,11 @@
 				<th>Delete</th>
 			</thead>
 			<tbody>
-				<tr ng-repeat='friend in friends'>
+				<tr ng-repeat='friend in friends track by $index'>
 					<td>{{ friend.firstName }} {{ friend.lastName }}</td>
 					<td><a ng-href = 'show($index)'>Show</a></td>
 					<!-- <td><a ng-href = "#/edit/friend._id">Update</a></td> -->
-					<td><button ng-click = "edit(friend._id)">Edit</button></td>
+					<td><button ng-click = "edit($index)">Edit</button></td>
 					<td><button ng-click = "delete(friend._id)">Delete</button></td>
 				</tr>
 			</tbody>

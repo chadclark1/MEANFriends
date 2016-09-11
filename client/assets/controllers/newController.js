@@ -26,10 +26,11 @@ index();
     $location.url('/');
   }
 
-  $scope.edit = function(){
+  $scope.edit = function(index){
     console.log("EDIT inside newController.js $scope.edit");
-    $location.url('/edit');
-    friendsFactory.edit($scope.edit, index);
+    friendsFactory.update(index);
+    console.log($scope.friends.index);
+    $location.url('/edit/' + index);
   }
 
   $scope.show = function(){
@@ -38,14 +39,12 @@ index();
   }
 
   $scope.delete = function(id){
-    index();
-
     console.log("DELETE inside newController.js $scope.DELETE");
-    console.log(id);
-    // friendsFactory.delete($scope.delete, function() {
-    //   // $location.url('/');
-    // });
+    // console.log(id);
+    
     friendsFactory.delete(id);
+
+    index();
   }
 
 

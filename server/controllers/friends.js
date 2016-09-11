@@ -57,9 +57,17 @@ function FriendsController(){
     //your code here
 
     // Friend.delete({_id: })
-    console.log(req.body);
+    console.log("in friend.js delete");
+    console.log(req.params.id);
 
-    res.json({placeholder:'delete'});
+    Friend.remove({_id: req.params.id}, function(err, results){
+      // console.log("in FriendsController this.index, Friend.find");
+      // console.log(results);
+      if(err) {console.log(err);}
+      res.json(results);
+    })
+
+    // res.json({placeholder:'delete'});
   };
   this.show = function(req,res){
     //your code here
