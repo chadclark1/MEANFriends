@@ -14,4 +14,6 @@ friendsFactory.getFriend(function(returnedData){
     all of the friends when we get back including the updated on??  
     See Index in the previous controller.
   */
+
+  // scope.update =
 }]);

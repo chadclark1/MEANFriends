@@ -24,6 +24,7 @@ app.factory('friendsFactory', ['$http', function($http) {
         // console.log(returned_data.data);
         friends = returned_data.data;
         callback(friends);
+        console.log(callback);
       })
  //Note: this can be shortened to $http.get('/friends').then(callback); 
  //But only if you only want to run the callback from the controller.
@@ -34,8 +35,22 @@ app.factory('friendsFactory', ['$http', function($http) {
         // console.log(id);
         $http.delete("/friends/" + id);
     };
-    this.show = function(){// what parameters do we need?
+    this.show = function($scope, index, callback){// what parameters do we need?
         // Your code here
+        console.log("show factory");
+        $http.get('/friends').then(function(returned_data){
+          console.log(returned_data.data[index]);
+          $scope.person = returned_data.data[index];
+          console.log($scope.person);
+          console.log(callback);
+          // callback(friend);
+        })
+        // $http.get('/friends').then(function(returned_data){
+        // console.log(returned_data.data);
+        // friends = returned_data.data;
+        // callback(friends);
+
+
     };
     // Sometimes you might not want to make a DB call, and just get the information stored in the factory.
     this.getFriends = function(callback){

@@ -28,14 +28,19 @@ index();
 
   $scope.edit = function(index){
     console.log("EDIT inside newController.js $scope.edit");
-    friendsFactory.update(index);
-    console.log($scope.friends.index);
+    friendsFactory.show($scope, index);
+    // console.log($scope.friends.index);
     $location.url('/edit/' + index);
   }
 
   $scope.show = function(){
     console.log("SHOW inside newController.js $scope.show");
-    friendsFactory.show($scope.show, index);
+    friendsFactory.show($scope, index, function(returnedData){
+                          $scope.person = returnedData;
+                          // console.log("hello from newController index var");
+                          // console.log($scope.friends);
+                          // console.log($scope);
+                        });
   }
 
   $scope.delete = function(id){
