@@ -30,27 +30,18 @@ app.factory('friendsFactory', ['$http', function($http) {
  //But only if you only want to run the callback from the controller.
     };
     this.delete = function(id){// what parameters do we need?
-        // Your code here
-        // console.log("delete factory");
-        // console.log(id);
         $http.delete("/friends/" + id);
     };
+    
     this.show = function($scope, index, callback){// what parameters do we need?
         // Your code here
         console.log("show factory");
         $http.get('/friends').then(function(returned_data){
-          console.log(returned_data.data[index]);
-          $scope.person = returned_data.data[index];
-          console.log($scope.person);
-          console.log(callback);
-          // callback(friend);
+          // console.log(returned_data.data[index]);
+          person = returned_data.data[index];
+          callback(person);
         })
-        // $http.get('/friends').then(function(returned_data){
-        // console.log(returned_data.data);
-        // friends = returned_data.data;
-        // callback(friends);
-
-
+       
     };
     // Sometimes you might not want to make a DB call, and just get the information stored in the factory.
     this.getFriends = function(callback){
